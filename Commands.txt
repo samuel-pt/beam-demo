@@ -1,0 +1,21 @@
+Local Runner
+------------
+
+mvn compile exec:java -Dexec.mainClass=com.palmtree.dataflow.WordCount \
+     -Dexec.args="--inputFile=/home/sam/work/projects/os/google/cloud-demo/sample.txt --output=/home/sam/work/projects/os/google/cloud-demo/result/counts" -Pdirect-runner
+
+mvn compile exec:java -Dexec.mainClass=com.palmtree.dataflow.WordCount \
+     -Dexec.args="--runner=SparkRunner --inputFile=/home/sam/work/projects/os/google/cloud-demo/sample.txt --output=/home/sam/work/projects/os/google/cloud-demo/result/counts" -Pspark-runner
+
+mvn compile exec:java -Dexec.mainClass=com.palmtree.dataflow.WordCount \
+     -Dexec.args="--runner=DataflowRunner --project=jug-demo \
+                  --gcpTempLocation=gs://jug-wordcount/tmp \
+                  --inputFile=gs://jug-wordcount/input/* --output=gs://jug-wordcount/output/counts" \
+     -Pdataflow-runner
+
+
+mvn compile exec:java -Dexec.mainClass=com.palmtree.nyc.job.NYCJob \
+     -Dexec.args="--jobCsv=/home/sam/work/projects/os/google/cloud-demo/job/NYC_Jobs.csv --totalJobOutput=/home/sam/work/projects/os/google/cloud-demo/job/result/total --salFreqOutput=/home/sam/work/projects/os/google/cloud-demo/job/result/salFreq --softwareJobsOutput=/home/sam/work/projects/os/google/cloud-demo/job/result/softwareJobs.csv" -Pdirect-runner
+
+mvn compile exec:java -Dexec.mainClass=com.palmtree.nyc.job.NYCJob \
+     -Dexec.args="--runner=DataflowRunner --project=jug-demo --jobCsv=gs://jug-job/input/NYC_Jobs.csv --totalJobOutput=gs://jug-job/output/total --salFreqOutput=gs://jug-job/output/salFreq --softwareJobsOutput=gs://jug-job/output/softwareJobs.csv" -Pdataflow-runner

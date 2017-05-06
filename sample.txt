@@ -1,0 +1,31 @@
+Apache Beam Documentation
+This section provides in-depth conceptual information and reference material for the Beam Model, SDKs, and Runners:
+
+Concepts
+Learn about the Beam Programming Model and the concepts common to all Beam SDKs and Runners.
+
+The Programming Guide introduces all the key Beam concepts.
+Visit Additional Resources for some of our favorite articles and talks about Beam.
+Pipeline Fundamentals
+Design Your Pipeline by planning your pipeline’s structure, choosing transforms to apply to your data, and determining your input and output methods.
+Create Your Pipeline using the classes in the Beam SDKs.
+Test Your Pipeline to minimize debugging a pipeline’s remote execution.
+SDKs
+Find status and reference information on all of the available Beam SDKs.
+
+Java SDK
+Python SDK
+Runners
+A Beam Runner runs a Beam pipeline on a specific (often distributed) data processing system.
+
+Available Runners
+DirectRunner: Runs locally on your machine – great for developing, testing, and debugging.
+ApexRunner: Runs on Apache Apex.
+FlinkRunner: Runs on Apache Flink.
+SparkRunner: Runs on Apache Spark.
+DataflowRunner: Runs on Google Cloud Dataflow, a fully managed service within Google Cloud Platform.
+[Under Development] GearpumpRunner: Runs on Apache Gearpump (incubating).
+Choosing a Runner
+Beam is designed to enable pipelines to be portable across different runners. However, given every runner has different capabilities, they also have different abilities to implement the core concepts in the Beam model. The Capability Matrix provides a detailed comparison of runner functionality.
+
+Once you have chosen which runner to use, see that runner’s page for more information about any initial runner-specific setup as well as any required or optional PipelineOptions for configuring it’s execution. You may also want to refer back to the Quickstart for instructions on executing the sample WordCount pipeline.
